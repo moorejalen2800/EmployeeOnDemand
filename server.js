@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const consoleTables = require("console.table");
 // created blank arrays for my tables
@@ -9,10 +9,10 @@ var employees = [];
 // connection to mysql database
 const connection = mysql.createConnection({
     host: "localhost",
-    port: "3360",
+    // port: "3306",
     user: "root",
     password: "moorejalen",
-    database: "TrackThem",
+    database: "employees_db",
 });
 
 
@@ -88,10 +88,10 @@ const getEmployee = () => {
 };
 // function that initializes the app and asks what they would like to do and directs them to associated function
 const init = () => {
-  getEmployee();
-  getRole();
-  getDepartments();
-  getManager();
+//   getEmployee();
+//   getRole();
+//   getDepartments();
+//   getManager();
   inquirer
     .prompt({
       name: "init",
@@ -114,6 +114,7 @@ const init = () => {
       ],
     })
     .then((answer) => {
+        console.log (answer)
       switch (answer.init) {
         case "View All Employees":
           allEmployees();
@@ -312,11 +313,11 @@ const allManagers = () => {
   });
 };
 const allEmployees = () => {
-  connection.query(`SELECT id, employee.first_name, employee.last_name, title, salary, department.role, managers.manager
+  connection.query(`SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name 
   FROM employee
-  JOIN role ON employee.role_id = role.role_id 
-  JOIN department ON role.department_id = department.department_id
-  LEFT JOIN managers on employee.manager_id = managers.manager_id`, (err, res) => {
+  JOIN role ON employee.role_id = role.id 
+  JOIN department ON role.department_id = department.id
+  `, (err, res) => {
     console.log("\nALL EMPLOYEES\n");
     if (err) throw err;
     console.table(res);
