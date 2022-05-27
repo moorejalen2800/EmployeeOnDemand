@@ -2,6 +2,12 @@
 
 This is a command line based application that lets you visually manage an employee database, using Node.js, Inquirer, and MySQL.
 
+# Demo 
+
+Part 1
+
+https://youtu.be/3bjnhpgfHxs
+
 
 # Installation
 
@@ -36,6 +42,10 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 # Contributing
 
 Michelle Jordan - Tutor 
+
+Leif Hetland
+
+Laura Cole 
 
 
 # Questions 
