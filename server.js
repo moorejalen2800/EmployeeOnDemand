@@ -294,7 +294,7 @@ const removeEmployee = () => {
             type: "list",
             name: "employee",
             message: "Who would you like to remove?",
-            choices: employeeNames,
+            choices: employeeNames
         })
         .then((answer) => {
             connection.query(
