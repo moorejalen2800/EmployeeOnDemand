@@ -6,7 +6,12 @@ This is a command line based application that lets you visually manage an employ
 
 Part 1
 
+<img width="1440" alt="Screen Shot 2022-06-08 at 5 49 08 PM" src="https://user-images.githubusercontent.com/100977121/172727580-80098a26-f726-42a7-9e08-a7cab6b42ca4.png">
+
+
 https://youtu.be/3bjnhpgfHxs
+
+
 
 
 # Installation
