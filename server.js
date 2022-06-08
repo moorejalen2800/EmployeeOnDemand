@@ -85,7 +85,7 @@ const App = () => {
 // List all Emplopyee's
 
 const viewAllEmployees = () => {
-    const placehold = `SELECT * FROM employee INNER JOIN role on role.id = 
+    const placehold = `SELECT FROM employee INNER JOIN role on role.id = 
     employee.role_id INNER JOIN department on department.id = role.department_id;`
 
     connection.query(`${placehold}`,
@@ -106,7 +106,7 @@ const viewAllEmployees = () => {
 // List different Departments
 
 const viewAllDepartments = () => {
-    connection.query(`SELECT * FROM department;`,
+    connection.query(`SELECT FROM department;`,
 
         function (err, result) {
             if (err)
@@ -242,7 +242,7 @@ const addRole = () => {
 
 
 const updateRole = () => {
-    connection.query("SELECT * FROM employee", function (err, res) {
+    connection.query("SELECT FROM employee", function (err, res) {
         if (err)
             throw err;
         const employeeNames = res.map(e => ({
@@ -250,7 +250,7 @@ const updateRole = () => {
         ${employee.last_name}`, value: employee.id
         }))
 
-        connection.query("SELECT * FROM role", function (err, res) {
+        connection.query("SELECT FROM role", function (err, res) {
             if (err)
                 throw err;
             var newRole = res.map(r => ({
