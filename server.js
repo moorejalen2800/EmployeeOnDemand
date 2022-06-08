@@ -121,7 +121,7 @@ const viewAllDepartments = () => {
 
 }
 
-// List all Employee's
+// List all Employee's Roles 
 
 const viewAllRoles = () => {
     const placehold = `SELECT role.title, role.salary, department.name
