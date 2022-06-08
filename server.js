@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
     user: "root",
     port: "3306",
     password: "moorejalen",
-    database: "employees_db",
+    database: "employees_db"
 });
 
 connection.connect(function (err) {
@@ -42,37 +42,45 @@ const App = () => {
 
         }).then(function (answer) {
             switch (answer.choice) {
-                case 'View all employees':
+                case 'View all Employees':
                     viewAllEmployees();
                     break;
 
-                case 'View all departments':
+
+                case 'View all Departments':
                     viewAllDepartments();
                     break;
 
-                case 'View all roles':
+
+                case 'View all Roles':
                     viewAllRoles();
                     break;
 
-                case 'Add an employee':
+
+                case 'Add an Employee':
                     addEmployee();
                     break;
 
-                case 'Add a department':
+
+                case 'Add a Department':
                     addDepartment();
                     break;
 
-                case 'Add a role':
+
+                case 'Add a Role':
                     addRole();
                     break;
 
-                case 'Update employee role':
+
+                case 'Update Employee Role':
                     updateRole();
                     break;
+
 
                 case 'Remove Employee':
                     removeEmployee();
                     break;
+                    
 
                 case 'Exit':
                     exitApp();
@@ -98,6 +106,8 @@ const viewAllEmployees = () => {
     connection.query(`${placeholder}`,
 
         function (err, results) {
+            if (err)
+                throw err;
             console.table(results)
 
             App();
@@ -114,6 +124,8 @@ const viewAllDepartments = () => {
     connection.query(`SELECT * FROM department;`,
 
         function (err, result) {
+            if (err)
+                throw err;
             console.table(result);
 
             App();
@@ -124,12 +136,14 @@ const viewAllDepartments = () => {
 // List all Employee's Roles 
 
 const viewAllRoles = () => {
-    const placehold = `SELECT role.title, role.salary, department.name
+    const placeholder = `SELECT role.title, role.salary, department.name
     FROM department
     INNER JOIN role ON role.department_id = department.id;`
     connection.query(`${placeholder}`,
 
         function (err, results) {
+            if (err)
+                throw err;
             console.table(results);
 
             App();
@@ -168,7 +182,7 @@ const addEmployee = () => {
             connection.query(`INSERT INTO employee
              (first_name, last_name, 
                 role_id, manager_id)
-        VALUES (?,?,?,)`,
+                VALUES (?,?,?,)`,
                 [answer.first, answer.last, answer.role, answer.manager],
                 function (err) {
                     if (err)
@@ -191,7 +205,7 @@ const addDepartment = () => {
         .then(function (answer) {
             connection.query(`INSERT INTO department SET ?`,
                 {
-                    name: answer.name
+                    name: answer.Name
                 },
                 function (err) {
                     if (err)
