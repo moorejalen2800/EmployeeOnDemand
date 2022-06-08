@@ -28,13 +28,13 @@ const App = () => {
             type: "list",
             message: "Welcome to Your Employee Tracker?",
             choices: [
-                "View all employees",
-                "View all departments",
-                "View all roles",
-                "Add an employee",
-                "Add a department",
-                "Add a role",
-                "Update employee role",
+                "View all Employees",
+                "View all Departments",
+                "View all Roles",
+                "Add an Employee",
+                "Add a Department",
+                "Add a Role",
+                "Update Employee role",
                 "Remove Employee",
                 "Exit"
             ]
