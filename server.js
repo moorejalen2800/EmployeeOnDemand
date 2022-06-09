@@ -185,9 +185,9 @@ const addEmployee = () => {
                 VALUES (?,?,?,)`,
                 [answer.first, answer.last, answer.role, answer.manager],
                 function (err) {
-                    if (err)
-                        throw err;
-                    console.table(answer);
+                    //  if (err)
+                    //    throw err
+                    console.table(answer)
                     App();
                 })
         })
